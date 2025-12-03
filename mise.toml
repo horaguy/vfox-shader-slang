@@ -26,4 +26,11 @@ run = [
 
 [tasks.ci]
 description = "Run all CI checks"
-depends = ["lint", "test"]
+run = '''
+if [ "$OS" = "Windows_NT" ]; then
+  mise run test
+else
+  mise run lint
+  mise run test
+fi
+'''
