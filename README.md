@@ -8,9 +8,10 @@ A [vfox](https://github.com/version-fox/vfox) plugin for [shader-slang](https://
 ## Installation
 
 ```shell
+# Enable this plugin
 mise plugin install shader-slang https://github.com/horaguy/vfox-shader-slang
 
-# Example: install the latest version globally
+# e.g. Install the latest version globally
 mise use -g shader-slang
 slangc -v
 ```
