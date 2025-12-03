@@ -25,20 +25,17 @@ function PLUGIN:Available(ctx)
     for _, tag_info in ipairs(tags) do
         -- Only accept versions matching vYYYY.MM.DD format (e.g., v2025.13.1)
         -- Exclude formats like vulkan-sdk-1.4.321.0 or v2024.10.1-draft
-        if not tag_info.tag_name:match("^v%d+%.%d+%.%d+$") then
-            goto continue
+        if tag_info.tag_name:match("^v%d+%.%d+%.%d+$") then
+            local version = tag_info.tag_name:gsub("^v", "")
+            local is_prerelease = tag_info.prerelease or false
+            local note = is_prerelease and "pre-release" or nil
+
+            table.insert(result, {
+                version = version,
+                note = nil, -- Optional: "latest", "lts", "pre-release", etc.
+                -- addition = {} -- Optional: additional tools/components
+            })
         end
-        local version = tag_info.tag_name:gsub("^v", "")
-        local is_prerelease = tag_info.prerelease or false
-        local note = is_prerelease and "pre-release" or nil
-
-        table.insert(result, {
-            version = version,
-            note = nil, -- Optional: "latest", "lts", "pre-release", etc.
-            -- addition = {} -- Optional: additional tools/components
-        })
-
-        ::continue::
     end
 
     return result
