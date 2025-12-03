@@ -16,9 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: jdx/mise-action@v3
-        with:
-          # Tools in <this repo>/mise.toml are not required in CI. Especially for Windows, some tools doesn't work.
-          install: false
+        # with:
+        # Tools in <this repo>/mise.toml are not required in CI. Especially for Windows, some tools doesn't work.
+        # install: false
       - run: mise run ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MISE_VERBOSE: 1
