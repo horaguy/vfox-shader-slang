@@ -26,7 +26,7 @@ function PLUGIN:Available(ctx)
         -- Accept versions starting with digits or v followed by digits (e.g., 2025.13.1, v2025.13.1, v2025.23, v2024.10.1-draft)
         -- Exclude formats like vulkan-sdk-1.4.321.0
         local tag_name = tag_info.tag_name
-        if tag_name:match("^(%d+|v%d+)") then
+        if tag_name:find("^%d+") or tag_name:find("^v%d+") then
             local version = tag_name:gsub("^v", "")
             local is_prerelease = tag_info.prerelease or false
             local note = is_prerelease and "pre-release" or nil
