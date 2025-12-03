@@ -12,8 +12,8 @@ function PLUGIN:PostInstall(ctx)
     local path = sdkInfo.path
     -- local version = sdkInfo.version
 
-    local testResult = os.execute(path .. "/bin/slangc -v > /dev/null 2>&1")
-    if testResult ~= 0 then
+    local success, exitType, exitCode = os.execute(path .. "/bin/slangc -v")
+    if not success or exitCode ~= 0 then
         error("shader-slang installation appears to be broken")
     end
 end
