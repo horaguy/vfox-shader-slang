@@ -6,7 +6,7 @@ function PLUGIN:Available(ctx)
     local http = require("http")
     local json = require("json")
 
-    local repo_url = "https://api.github.com/repos/shader-slang/slang/releases"
+    local repo_url = "https://api.github.com/repos/shader-slang/slang/releases?per_page=100"
 
     local resp, err = http.get({
         url = repo_url,
