@@ -1,9 +1,18 @@
+> [!NOTE]
+> I recommend to use [GitHub backend of mise](https://mise.jdx.dev/dev-tools/backends/github.html) instead of this plugin. It works well!
+> ```shell
+> # e.g.
+> mise use github:shader-slang/slang
+> ```
+
+
 # vfox-shader-slang
 
 A [vfox](https://github.com/version-fox/vfox) plugin for [shader-slang](https://github.com/shader-slang/slang).
 
 > [!CAUTION]
 > Supported versions: 2024.1.27 or later
+
 
 ## Installation
 
